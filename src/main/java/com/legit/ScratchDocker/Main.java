@@ -31,7 +31,7 @@ public class Main {
             @Override
             public void onData(SocketIOClient client, MessageEvent data, AckRequest ackSender) throws Exception {
                 System.out.println("Data received "  + data.toString());
-                server.getBroadcastOperations().sendEvent(data.tag,  data.content);
+                server.getBroadcastOperations().sendEvent(data.tag,  data);
             }
         });
 

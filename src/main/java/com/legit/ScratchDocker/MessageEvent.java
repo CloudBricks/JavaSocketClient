@@ -9,13 +9,14 @@ import java.util.Map;
 public class MessageEvent {
 
     public final String tag;
-    public final String content;
-    public final String metadata;
+    public final Object content;
+    public final Object metadata;
 
     static Map<Integer,MessageEvent> messages = new HashMap<>();
 
     public MessageEvent(){
-        tag = content = metadata = "";
+        tag =  "";
+        metadata = content = null;
     }
 
     public MessageEvent forId(int id){
