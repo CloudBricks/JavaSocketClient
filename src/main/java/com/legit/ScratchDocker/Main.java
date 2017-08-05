@@ -4,6 +4,7 @@ import com.corundumstudio.socketio.AckRequest;
 import com.corundumstudio.socketio.Configuration;
 import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.SocketIOServer;
+import com.corundumstudio.socketio.listener.ConnectListener;
 import com.corundumstudio.socketio.listener.DataListener;
 
 import java.net.Socket;
@@ -29,7 +30,15 @@ public class Main {
         server.addEventListener("messageevent", MessageEvent.class, new DataListener<MessageEvent>() {
             @Override
             public void onData(SocketIOClient client, MessageEvent data, AckRequest ackSender) throws Exception {
-                server.getBroadcastOperations().sendEvent(data.tag, data.content);
+                System.out.println("Data received "  + data.toString());
+                server.getBroadcastOperations().sendEvent(data.tag,  data.content);
+            }
+        });
+
+        server.addConnectListener(new ConnectListener() {
+            @Override
+            public void onConnect(SocketIOClient client) {
+                System.out.println("New connection");
             }
         });
 

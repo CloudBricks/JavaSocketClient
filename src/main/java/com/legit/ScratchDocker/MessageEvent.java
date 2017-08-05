@@ -10,11 +10,12 @@ public class MessageEvent {
 
     public final String tag;
     public final String content;
+    public final String metadata;
 
     static Map<Integer,MessageEvent> messages = new HashMap<>();
 
     public MessageEvent(){
-        tag = content = "";
+        tag = content = metadata = "";
     }
 
     public MessageEvent forId(int id){
@@ -23,5 +24,9 @@ public class MessageEvent {
 
     public void destroy(int id){
         messages.remove(id);
+    }
+
+    public String toString(){
+        return tag + " : " + content;
     }
 }
