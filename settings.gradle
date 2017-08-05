@@ -1,0 +1,5 @@
+rootProject.name = 'scratchdocker'
+include 'java'
+findProject(':java')?.name = 'scratchdocker'
+rootProject.name = 'ScratchDocker'
+
