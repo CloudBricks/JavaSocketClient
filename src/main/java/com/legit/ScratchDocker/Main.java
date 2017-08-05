@@ -15,6 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
         startSocketServer();
+        System.out.println("Socket server running");
     }
 
     static void startSocketServer() {
